@@ -70,7 +70,6 @@ def update():
     """
         Left Image
     """
-    print(selectedLeft)
     df = pd.read_csv('taxData2021.csv')
 
     fig = go.Figure(data=go.Choropleth(
@@ -99,7 +98,7 @@ def update():
     fig = go.Figure(data=go.Choropleth(
         locations=df['code'], # Spatial coordinates
         #z = df['Property Taxes'].astype(float), # Data to be color-coded
-        z = df[selectedRight].astype(float), # Data to be color-coded
+        z = df[selectedRight].astype(float)*1000, # Data to be color-coded
         locationmode = 'USA-states', # set of locations match entries in `locations`
         colorscale = 'Reds',
         colorbar_title = "Tax",
